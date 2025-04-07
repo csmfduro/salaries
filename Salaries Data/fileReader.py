@@ -3,18 +3,18 @@ import pandas as pd
 #file name set allowing easy access if file ever is lost
 csvFilePath = "Salaries Data\\salaries.csv"
 questionsFilePath = "Salaries Data\\Questions.txt"
-datasetInfo = "Salaries Data\\About_Salaries.txt"
+datasetInfoFilePath = "Salaries Data\\About_Salaries.txt"
 
-def read(filePath, questionsFilePath, datasetInfo):
+def read(csvfilePath, questionsFilePath, datasetInfoFilePath):
 # Reads csv file
-    dataset = pd.read_csv(filePath)
+    dataset = pd.read_csv(csvfilePath)
 # Reads the questions
     with open(questionsFilePath, 'r') as file:
-        questions = file.readlines()
+        questions = file.read()
 # Reads the Dataset info
-    with open(datasetInfo, 'r') as file:
-        datasetInfo = file.readlines()
+    with open(datasetInfoFilePath, 'r') as file:
+        datasetInfo = file.read()
 # Returns everything
     return dataset, questions, datasetInfo
 
-dataset, questions, datasetInfo = read(csvFilePath, questionsFilePath, datasetInfo)
+dataset, questions, datasetInfo = read(csvFilePath, questionsFilePath, datasetInfoFilePath)

@@ -19,21 +19,25 @@ def viewColumnNames():
 
 def viewDatasetInfo():
     print("Viewing dataset info.")
-    with open(datasetInfo) as file:
-        while line := file.readline():
-            print(line.rstrip())
+    # with open(datasetInfo) as file:
+    #     while line := file.readline():
+    print(datasetInfo)
 
+def viewQuestions():
+    print(questions)
+    
 def questionChoice():
-    print("Pick one of these questions.")
-
+    print("Enter the question number")
+    
 def main():
     while True:
         print("\nOptions:")
         print("1. View Dataset")
         print("2. View Column Names")
         print("3. View Dataset Info")
-        print("4. Pick a question")
-        print("5. Exit")
+        print("4. View questions")
+        print("5. Pick questions")
+        print("6. Exit")
 
         choice = input("Enter your choice: ")
 
@@ -44,8 +48,10 @@ def main():
         elif choice == "3":
             viewDatasetInfo()
         elif choice == "4":
-            questionChoice()                                                          
+            viewQuestions()
         elif choice == "5":
+            questionChoice()                                                         
+        elif choice == "6":
             print("Exiting the program.")
             break
         else:
