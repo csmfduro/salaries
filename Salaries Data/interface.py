@@ -1,15 +1,11 @@
 import csv
 import pandas as pd
+# Imports the contents of "fileReader.py"
+import fileReader 
 
-datasetInfo= "Salaries Data\\About_Salaries.txt"
-filePath = "Salaries Data\\salaries.csv"
-
-def read(filePath):
-    dataset = pd.read_csv(filePath)
-    print("dataset loaded")
-    return dataset
-
-dataset = read(filePath)
+dataset = fileReader.dataset
+questions = fileReader.questions
+datasetInfo = fileReader.datasetInfo
 
 def viewDataset():
     print("Viewing dataset.")
