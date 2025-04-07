@@ -23,11 +23,15 @@ def viewDatasetInfo():
     #     while line := file.readline():
     print(datasetInfo)
 
+# View the question and accept user input
 def viewQuestions():
-    print(questions)
-    
-def questionChoice():
-    print("Enter the question number")
+    for question in questions:
+        print(question.strip())
+    num = int(input("Enter the question number: "))
+    if 1 <= num <= len(questions):
+         print(f"\n{questions[num].strip()}")
+    else:
+        print("Invalid number.")
     
 def main():
     while True:
@@ -36,8 +40,7 @@ def main():
         print("2. View Column Names")
         print("3. View Dataset Info")
         print("4. View questions")
-        print("5. Pick question")
-        print("6. Exit")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
         
@@ -51,8 +54,6 @@ def main():
             case "4":
                 viewQuestions()
             case "5":
-                questionChoice()
-            case "6":
                 print("Exiting the program.")
                 break
             case _:

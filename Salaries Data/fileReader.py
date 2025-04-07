@@ -10,7 +10,7 @@ def read(csvfilePath, questionsFilePath, datasetInfoFilePath):
     dataset = pd.read_csv(csvfilePath)
 # Reads the questions
     with open(questionsFilePath, 'r') as file:
-        questions = file.read()
+        questions = file.readlines()
 # Reads the Dataset info
     with open(datasetInfoFilePath, 'r') as file:
         datasetInfo = file.read()
