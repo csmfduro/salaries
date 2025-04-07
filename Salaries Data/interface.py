@@ -27,11 +27,17 @@ def viewDatasetInfo():
 def viewQuestions():
     for question in questions:
         print(question.strip())
-    num = int(input("Enter the question number: "))
-    if 1 <= num <= len(questions):
-         print(f"\n{questions[num].strip()}")
-    else:
-        print("Invalid number.")
+
+    while True:
+        try:
+            num = int(input("Enter the your question number: "))
+            if 1 <= num <= len(questions):
+                print(f"\n{questions[num].strip()}")
+                break  # Exit the loop once valid input is given
+            else:
+                print("Invalid number. Please enter a number from the list.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
     
 def main():
     while True:
