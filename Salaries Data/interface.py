@@ -36,24 +36,26 @@ def main():
         print("2. View Column Names")
         print("3. View Dataset Info")
         print("4. View questions")
-        print("5. Pick questions")
+        print("5. Pick question")
         print("6. Exit")
 
         choice = input("Enter your choice: ")
-
-        if choice == "1":
-            viewDataset()
-        elif choice == "2":
-            viewColumnNames()
-        elif choice == "3":
-            viewDatasetInfo()
-        elif choice == "4":
-            viewQuestions()
-        elif choice == "5":
-            questionChoice()                                                         
-        elif choice == "6":
-            print("Exiting the program.")
-            break
-        else:
-            print("Invalid option. Try again.")
+        
+        match choice:
+            case "1":
+                viewDataset()
+            case "2":
+                viewColumnNames()
+            case "3":
+                viewDatasetInfo()
+            case "4":
+                viewQuestions()
+            case "5":
+                questionChoice()
+            case "6":
+                print("Exiting the program.")
+                break
+            case _:
+                 print("Invalid option. Try again.")
+           
 main()
