@@ -34,6 +34,6 @@ The dataset contains one table structured as follow:
 10. company_location: The country of the employer's main office or contracting branch as an ISO 3166 country code.
 
 11. company_size: The average number of people that worked for the company during the year:
-S: less than 50 employees (small)
-M: 50 to 250 employees (medium)
-L: more than 250 employees (large)
+    S: less than 50 employees (small)
+    M: 50 to 250 employees (medium)
+    L: more than 250 employees (large)

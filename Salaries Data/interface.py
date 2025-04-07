@@ -1,43 +1,68 @@
-def loadDataset():  
-    print("Dataset loaded.")
+import csv
+import pandas as pd
+# Imports the contents of "fileReader.py"
+import fileReader 
+
+dataset = fileReader.dataset
+questions = fileReader.questions
+datasetInfo = fileReader.datasetInfo
 
 def viewDataset():
     print("Viewing dataset.")
+    print(dataset)
 
 def viewColumnNames():
     print("Viewing column names.")
+    columns = dataset.columns.values.tolist()
+    print(columns)
+
 
 def viewDatasetInfo():
     print("Viewing dataset info.")
+    # with open(datasetInfo) as file:
+    #     while line := file.readline():
+    print(datasetInfo)
 
-def questionChoice():
-    print("Pick one of these questions.")
+# View the question and accept user input
+def viewQuestions():
+    for question in questions:
+        print(question.strip())
 
+    while True:
+        try:
+            num = int(input("Enter the your question number: "))
+            if 1 <= num <= len(questions):
+                print(f"\n{questions[num].strip()}")
+                break  # Exit the loop once valid input is given
+            else:
+                print("Invalid number. Please enter a number from the list.")
+        except ValueError:
+            print("Invalid input. Please enter a valid number.")
+    
 def main():
     while True:
         print("\nOptions:")
-        print("1. Load Dataset")
-        print("2. View Dataset")
-        print("3. View Column Names")
-        print("4. View Dataset Info")
-        print("5. Pick a question")
-        print("6. Exit")
+        print("1. View Dataset")
+        print("2. View Column Names")
+        print("3. View Dataset Info")
+        print("4. View questions")
+        print("5. Exit")
 
         choice = input("Enter your choice: ")
-
-        if choice == "1":
-            loadDataset()
-        elif choice == "2":
-            viewDataset()
-        elif choice == "3":
-            viewColumnNames()
-        elif choice == "4":
-            viewDatasetInfo()
-        elif choice == "5":
-            questionChoice()                                                          
-        elif choice == "6":
-            print("Exiting the program.")
-            break
-        else:
-            print("Invalid option. Try again.")
+        
+        match choice:
+            case "1":
+                viewDataset()
+            case "2":
+                viewColumnNames()
+            case "3":
+                viewDatasetInfo()
+            case "4":
+                viewQuestions()
+            case "5":
+                print("Exiting the program.")
+                break
+            case _:
+                 print("Invalid option. Try again.")
+           
 main()
