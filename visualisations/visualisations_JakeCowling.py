@@ -18,7 +18,7 @@ def q7():
   
   # Format dataframe for clarity
   formatted_data = low_title.reset_index()
-  formatted_data.columns = ['\nJob Title', 'Average Salary (USD)\n']
+  formatted_data.columns = ['Job Title', 'Average Salary (USD)']
   
   # Print only the top 10
   print("\n-10 lowest paying jobs and their titles-\n")
