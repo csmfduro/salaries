@@ -29,8 +29,9 @@ def q7():
 def q8():
   "8. What is the main trend between experience level and salary?"
   df = fileReader.dataset
-
+  #Grouping the experience level by USD Salary
   avg_salary_experience = df.groupby('experience_level')['salary_in_usd'].mean()
+  #Prints values to use in grahpical representation
   print(avg_salary_experience)
 
   # Plotting the average salary by Experience Level
@@ -43,7 +44,7 @@ def q8():
 
   plt.show()
 
-
+# Interface 
 while True:
         print("Questions:")
         print("7. What are the job titles for the lowest ten paying jobs (in ascending order)?")
@@ -51,7 +52,7 @@ while True:
         print("0. Exit")
 
         choice = input("\nEnter your choice: ")
-        
+        #Choices / options for user to select
         match choice:
             case "7":
                 q7()
@@ -61,6 +62,7 @@ while True:
                 print("Exiting the program.")
                 break
             case _:
+                 # Only allows 7,8,0 to be entered therefore negating any issues with other datatypes or inputs being used.
                  print("Invalid Try again.")
 
 
