@@ -60,24 +60,40 @@ def q2():
   plt.show()
 
 
-
 def q5():
+  "5.	what is the difference in average salary between companies with 100% remote work and 0% remote work"
+
   dataset= fileReader.dataset 
 
-  remote = dataset[dataset["remote_ratio"] == 100]
+  remote = dataset[dataset["remote_ratio"] == 100] #collecting by 100% remote work
     
-  notRemote = dataset[dataset["remote_ratio"] == 0]
+  notRemote = dataset[dataset["remote_ratio"] == 0] #collecting by 0% remote work
     
-  remoteAverage = remote["salary_in_usd"].mean()
+  remoteAverage = remote["salary_in_usd"].mean().round(2) # calculating average salary in USD for 100% remote work
 
-  notRemoteAverage = notRemote["salary_in_usd"].mean()
+  notRemoteAverage = notRemote["salary_in_usd"].mean().round(2) #calculating average salary in USD for 0% remote work
 
-  notRemoteSalary = notRemoteAverage.round(2)
+  difference = (notRemoteAverage-remoteAverage).round(2) #finding difference between the salaries
 
-  remoteSalary = remoteAverage.round(2)
+  print("\n100% remote work: $",remoteAverage) 
+  print("0% remote work: $",notRemoteAverage) #displaying results
+  print("Difference: $",difference)
 
-  difference = (notRemoteSalary-remoteSalary).round(2)
+def q6():
+  "6.	what is the difference between the average salary in lockdown (2020) compared to this year (2025)"
 
-  print("100% remote work: $",remoteSalary)
-  print("0% remote work: $",notRemoteSalary)
+  dataset= fileReader.dataset
+
+  lockdown= dataset[dataset["work_year"] == 2020] #collecting by work year 2020
+
+  recent= dataset[dataset["work_year"] == 2025] #collecting by work year 2025
+
+  lockdownAverage = lockdown["salary_in_usd"].mean().round(2) #calculating average salary in USD for work year 2020
+
+  recentAverage = recent["salary_in_usd"].mean().round(2) #calculating average salary in USD for work year 2025
+
+  difference = (recentAverage-lockdownAverage).round(2) #finding difference between the salaries
+  
+  print("\nLockdown (2020): $",lockdownAverage)
+  print("Recent(2025): $",recentAverage) #displaying results
   print("Difference: $",difference)
