@@ -1,8 +1,8 @@
 import pandas as pd
 #file name set allowing easy access if file ever is lost
-csvFilePath = "Salaries Data\\salaries.csv"
-questionsFilePath = "Salaries Data\\Questions.txt"
-datasetInfoFilePath = "Salaries Data\\About_Salaries.txt"
+csvFilePath = "Salaries_data\\salaries.csv"
+questionsFilePath = "Salaries_data\\Questions.txt"
+datasetInfoFilePath = "Salaries_data\\About_Salaries.txt"
 
 def read(csvfilePath, questionsFilePath, datasetInfoFilePath):
 # Reads csv file
