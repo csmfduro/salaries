@@ -7,12 +7,12 @@ datasetInfo = fileReader.datasetInfo
 
 def viewDataset():
     print("Viewing dataset.")
-    print(dataset)
+    print(dataset) #print dataset contained using pandas
 
 def viewColumnNames():
     print("Viewing column names.")
-    columns = dataset.columns.values.tolist()
-    print(columns)
+    columns = dataset.columns.values.tolist() #add top columns of dataset into a list
+    print(columns) #print list
 
 
 def viewDatasetInfo():
