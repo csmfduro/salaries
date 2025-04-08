@@ -4,7 +4,7 @@
 4.	Do freelancers make more money or less money compared to employees who work fulltime and if so what job/ task allows a freelancer to get a good pay and if less what jobs are freelancers taking up?
 5.	what is the difference in average salary between companies with 100% remote work and 0% remote work
 6.	what is the difference between the average salary in lockdown (2020) compared to this year (2025)
-7.	What are the job titles for the top and bottom 10 for gross salary?
+7.	What are the job titles for the lowest ten paying jobs (in ascending order)?
 8.	What is the main trend between experience level and salary?
 9.	Do gender or diversity factors influence salaries in AI roles?
 10.	Are AI professionals in smaller companies paid less than those in large
