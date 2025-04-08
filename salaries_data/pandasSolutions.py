@@ -22,7 +22,6 @@ def q1():
   # Print only the top 10
   print("\n---------Top 10 Countries by Average AI Salary----------\n")
   print(formatted_data.to_string(index=False))
-  return top_countries
 
     
 def q2():
@@ -40,7 +39,9 @@ def q2():
   average_salary_by_job = grouped_by_job["salary_in_usd"].mean()
   
   # Sort the job titles by the highest average salary
-  highest_paying_jobs = average_salary_by_job.sort_values(ascending=False).head(8).round(2)
+  highest_paying_jobs = average_salary_by_job.sort_values(ascending=False)
+  
+  highest_paying_jobs =  highest_paying_jobs.head(8).round(2)
   
   # Format the Dataframe to make it look nicer
   formatted_data = highest_paying_jobs.reset_index()
@@ -50,7 +51,6 @@ def q2():
   print(highest_paying_jobs)
   for i, row in formatted_data.iterrows():
     print(f"{i+1}. {row['Job Title']}: {row['Average Salary (USD)']}")
-  return highest_paying_jobs
 
 
 def q5():
