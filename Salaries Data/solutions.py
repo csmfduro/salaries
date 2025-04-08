@@ -58,3 +58,26 @@ def q2():
   # Ensure everything fits inside the plot
   plt.tight_layout()
   plt.show()
+
+
+
+def q5():
+  dataset= fileReader.dataset 
+
+  remote = dataset[dataset["remote_ratio"] == 100]
+    
+  notRemote = dataset[dataset["remote_ratio"] == 0]
+    
+  remoteAverage = remote["salary_in_usd"].mean()
+
+  notRemoteAverage = notRemote["salary_in_usd"].mean()
+
+  notRemoteSalary = notRemoteAverage.round(2)
+
+  remoteSalary = remoteAverage.round(2)
+
+  difference = (notRemoteSalary-remoteSalary).round(2)
+
+  print("100% remote work: $",remoteSalary)
+  print("0% remote work: $",notRemoteSalary)
+  print("Difference: $",difference)
