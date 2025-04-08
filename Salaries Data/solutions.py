@@ -66,15 +66,11 @@ def q5():
   dataset= fileReader.dataset 
 
   remote = dataset[dataset["remote_ratio"] == 100] #collecting by 100% remote work
-    
   notRemote = dataset[dataset["remote_ratio"] == 0] #collecting by 0% remote work
-    
   remoteAverage = remote["salary_in_usd"].mean().round(2) # calculating average salary in USD for 100% remote work
-
   notRemoteAverage = notRemote["salary_in_usd"].mean().round(2) #calculating average salary in USD for 0% remote work
-
   difference = (notRemoteAverage-remoteAverage).round(2) #finding difference between the salaries
-
+  
   print("\n100% remote work: $",remoteAverage) 
   print("0% remote work: $",notRemoteAverage) #displaying results
   print("Difference: $",difference)
@@ -85,13 +81,9 @@ def q6():
   dataset= fileReader.dataset
 
   lockdown= dataset[dataset["work_year"] == 2020] #collecting by work year 2020
-
   recent= dataset[dataset["work_year"] == 2025] #collecting by work year 2025
-
   lockdownAverage = lockdown["salary_in_usd"].mean().round(2) #calculating average salary in USD for work year 2020
-
   recentAverage = recent["salary_in_usd"].mean().round(2) #calculating average salary in USD for work year 2025
-
   difference = (recentAverage-lockdownAverage).round(2) #finding difference between the salaries
   
   print("\nLockdown (2020): $",lockdownAverage)
