@@ -4,9 +4,9 @@ csvFilePath = "Salaries Data\\salaries.csv"
 questionsFilePath = "Salaries Data\\Questions.txt"
 datasetInfoFilePath = "Salaries Data\\About_Salaries.txt"
 
-def read(csvfilePath, questionsFilePath, datasetInfoFilePath):
+def read(csvFilePath, questionsFilePath, datasetInfoFilePath):
 # Reads csv file
-    dataset = pd.read_csv(csvfilePath)
+    dataset = pd.read_csv(csvFilePath)
 # Reads the questions
     with open(questionsFilePath, 'r') as file:
         questions = file.readlines()
