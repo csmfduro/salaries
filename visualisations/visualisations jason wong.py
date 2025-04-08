@@ -1,11 +1,10 @@
 import matplotlib.pyplot as plt
 import pandas as pd
-csvFilePath = "Salaries Data\\salaries.csv"
+csvFilePath = "salaries_data\\salaries.csv"
+dataset = pd.read_csv(csvFilePath)
 
 def q5():
     "5.	what is the difference in average salary between companies with 100% remote work and 0% remote work"
-
-    dataset = pd.read_csv(csvFilePath)
 
     remote = dataset[dataset["remote_ratio"] == 100] #collecting by 100% remote work
     notRemote = dataset[dataset["remote_ratio"] == 0] #collecting by 0% remote work
@@ -25,8 +24,6 @@ def q5():
 
 def q6():
     "6.	what is the difference between the average salary in lockdown (2020) compared to this year (2025)"
-
-    dataset = pd.read_csv(csvFilePath)
 
     lockdown= dataset[dataset["work_year"] == 2020] #collecting by work year 2020
     recent= dataset[dataset["work_year"] == 2025] #collecting by work year 2025
