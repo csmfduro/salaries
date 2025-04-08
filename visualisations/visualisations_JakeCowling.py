@@ -11,8 +11,6 @@ def q7():
   df = fileReader.dataset
   # Will be grouped by salary
   
-  
-  
   job_salary = df.groupby("job_title")["salary_in_usd"].mean()
   
   # Sort job titles by their respective salary
@@ -39,10 +37,9 @@ def q8():
   avg_salary_experience.plot(kind='bar',)
 
   # Labels for Graph
-  plt.title('Average Salary by Experience Level')
+  plt.title('Relationship between Experience level and Average Salary')
   plt.xlabel('Experience Level')
   plt.ylabel('Average Salary')
-
 
   plt.show()
 
