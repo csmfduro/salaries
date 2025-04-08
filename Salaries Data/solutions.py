@@ -30,12 +30,8 @@ def q1():
   # Rotate X-axis labels for better readability
   plt.xticks(rotation=45)
 
-  # Format Y-axis labels to 2 decimal places
-  # ax.yaxis.set_major_formatter(FuncFormatter(lambda x, _: f'{x:,.2f}'))
-
   # Ensure everything fits inside the plot
   plt.tight_layout()
-
-  # Show the plot
+  
   plt.show()
     
