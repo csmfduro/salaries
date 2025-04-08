@@ -10,9 +10,11 @@ def q1():
   # Grouped by employee_residence
   grouped = df.groupby("employee_residence")
   
-  # Find the average salary of each country
-  average_country_salary = grouped["salary_in_usd"].mean()
+  # Group the countries based on their salaries
+  group_country_salary = grouped["salary_in_usd"]
   
+  # Calculate the average salary
+  average_country_salary = group_country_salary.mean()
   # Sort countries by highest average salary
   top_countries = average_country_salary.sort_values(ascending=False).head(10).round(2)
   
@@ -49,9 +51,10 @@ def q2():
   formatted_data.columns = ['Job Title', 'Average Salary (USD)']
   
   # Display the top 8 highest-paying job titles
-  print(highest_paying_jobs)
+  print("\n")
   for i, row in formatted_data.iterrows():
-    print(f"{i+1}. {row['Job Title']}: {row['Average Salary (USD)']}")
+    print(f"{i+1}. {row['Job Title']}: ${row['Average Salary (USD)']:.2f}")
+
 
 
 def q5():
