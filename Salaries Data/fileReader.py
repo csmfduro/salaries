@@ -1,4 +1,3 @@
-import csv
 import pandas as pd
 #file name set allowing easy access if file ever is lost
 csvFilePath = "Salaries Data\\salaries.csv"

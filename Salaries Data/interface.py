@@ -1,8 +1,6 @@
-import csv
-import pandas as pd
 # Imports the contents of "fileReader.py"
-import fileReader 
-
+import fileReader
+import solutions
 dataset = fileReader.dataset
 questions = fileReader.questions
 datasetInfo = fileReader.datasetInfo
@@ -30,10 +28,14 @@ def viewQuestions():
 
     while True:
         try:
-            num = int(input("Enter the your question number: "))
+            num = int(input("\nEnter the your question number or enter -1 to Abort: "))
             if 1 <= num <= len(questions):
-                print(f"\n{questions[num].strip()}")
+                print(f"\n{questions[num - 1].strip()}")
+                func = getattr(solutions, f"q{num}")
+                func()  # Run the corresponding solution
                 break  # Exit the loop once valid input is given
+            elif num == -1:
+                break
             else:
                 print("Invalid number. Please enter a number from the list.")
         except ValueError:
