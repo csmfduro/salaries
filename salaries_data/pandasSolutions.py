@@ -1,4 +1,5 @@
 import fileReader
+import matplotlib.pyplot as plt
 
 def q1():
   """ 1.	Which countries offer the highest salaries for AI professionals?
@@ -82,3 +83,34 @@ def q6():
   print("\nLockdown (2020): $",lockdownAverage)
   print("Recent(2025): $",recentAverage) #displaying results
   print("Difference: $",difference)
+
+
+def q7():
+  "7. What are the job titles for the lowest ten paying jobs (in ascending order)?"
+
+  df = fileReader.dataset
+  # Will be grouped by salary
+  
+  
+  
+  job_salary = df.groupby("job_title")["salary_in_usd"].mean()
+  
+  # Sort job titles by their respective salary
+  low_title = job_salary.sort_values(ascending=True).head(10)
+  
+  # Format the Dataframe to make it look nicer
+  formatted_data = low_title.reset_index()
+  formatted_data.columns = ['\nJob Title', 'Average Salary (USD)\n']
+  
+  # Print only the top 10
+  print("\n-10 lowest paying jobs and their titles-\n")
+  print(formatted_data.to_string(index=False))
+  return low_title
+
+
+def q8():
+  "8. What is the main trend between experience level and salary?"
+  df = fileReader.dataset
+
+  avg_salary_experience = df.groupby('experience_level')['salary_in_usd'].mean().round(2)
+  print(avg_salary_experience)
