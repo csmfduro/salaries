@@ -16,7 +16,7 @@ def q7():
   # Sort job titles by their respective salary
   low_title = job_salary.sort_values(ascending=True).head(10)
   
-  # Format the Dataframe to make it look nicer
+  # Format dataframe for clarity
   formatted_data = low_title.reset_index()
   formatted_data.columns = ['\nJob Title', 'Average Salary (USD)\n']
   
