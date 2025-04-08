@@ -30,12 +30,12 @@ def q8():
   "8. What is the main trend between experience level and salary?"
   df = fileReader.dataset
   #Grouping the experience level by USD Salary
-  avg_salary_experience = df.groupby('experience_level')['salary_in_usd'].mean()
+  avg_salary_exp = df.groupby('experience_level')['salary_in_usd'].mean()
   #Prints values to use in grahpical representation
-  print(avg_salary_experience)
+  print(avg_salary_exp)
 
   # Plotting the average salary by Experience Level
-  avg_salary_experience.plot(kind='bar',)
+  avg_salary_exp.plot(kind='bar',)
 
   # Labels for Graph
   plt.title('Relationship between Experience level and Average Salary')
