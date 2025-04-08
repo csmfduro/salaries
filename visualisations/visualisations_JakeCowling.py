@@ -21,7 +21,7 @@ def q7():
   formatted_data.columns = ['Job Title', 'Average Salary (USD)']
   
   # Print only the top 10
-  print("\n-10 lowest paying jobs and their titles-\n")
+  print("-10 lowest paying jobs and their titles-")
   print(formatted_data.to_string(index=False))
   return low_title
 
