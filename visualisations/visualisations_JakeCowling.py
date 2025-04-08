@@ -9,8 +9,8 @@ def q7():
   "7. What are the job titles for the lowest ten paying jobs (in ascending order)?"
 
   df = fileReader.dataset
-  # Will be grouped by salary
   
+  # Will be grouped by salary
   job_salary = df.groupby("job_title")["salary_in_usd"].mean()
   
   # Sort job titles by their respective salary
