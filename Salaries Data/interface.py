@@ -50,7 +50,7 @@ def main():
         print("4. View questions")
         print("5. Exit")
 
-        choice = input("Enter your choice: ")
+        choice = input("\nEnter your choice: ")
         
         match choice:
             case "1":
