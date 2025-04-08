@@ -82,4 +82,3 @@ def q6():
   print("\nLockdown (2020): $",lockdownAverage)
   print("Recent(2025): $",recentAverage) #displaying results
   print("Difference: $",difference)
-  print("\n---------Top 8 Highest paying AI Job Titles----------\n")
