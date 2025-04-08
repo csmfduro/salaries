@@ -28,7 +28,7 @@ def q7():
 
 def q8():
   "8. What is the main trend between experience level and salary?"
-  df = fileReader.dataset
+  df = dataset
   #Grouping the experience level by USD Salary
   avg_salary_exp = df.groupby('experience_level')['salary_in_usd'].mean()
   #Prints values to use in grahpical representation
