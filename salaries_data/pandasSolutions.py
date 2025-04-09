@@ -57,6 +57,77 @@ def q2():
 
 
 
+def q3():
+    """
+    3. How much would an Entry Level/Junior of a high paying job make 
+    compared to a low paying job but at Senior level or Executive level?
+    """
+
+    dataset = fileReader.dataset
+
+    # Calculate average salary per job title
+    job_averages = dataset.groupby("job_title")["salary_in_usd"].mean()
+
+    # Identify highest and lowest paying job titles
+    highestPayingJobTitle = job_averages.idxmax()
+    lowestPayingJobTitle = job_averages.idxmin()
+
+    # Filter dataset for those job titles
+    highPayingJob = dataset[dataset["job_title"] == highestPayingJobTitle]
+    lowPayingJob = dataset[dataset["job_title"] == lowestPayingJobTitle]
+
+    # Filter by experience levels
+    entryLevelHigh = highPayingJob[highPayingJob["experience_level"] == "EN"]
+    seniorLow = lowPayingJob[lowPayingJob["experience_level"].isin(["SE", "EX"])]
+
+    # Check for available data
+    if entryLevelHigh.empty or seniorLow.empty:
+        print("Not enough data for experience levels in selected jobs.")
+        return
+
+    # Calculate averages
+    entryLevelHighAvg = entryLevelHigh["salary_in_usd"].mean().round(2)
+    seniorLowAvg = seniorLow["salary_in_usd"].mean().round(2)
+    difference = (entryLevelHighAvg - seniorLowAvg).round(2)
+
+    # Display results
+    print(f"\nEntry/Junior in highest-paying job ({highestPayingJobTitle}): ${entryLevelHighAvg}")
+    print(f"Senior/Executive in lowest-paying job ({lowestPayingJobTitle}): ${seniorLowAvg}")
+    print("Difference: $", difference)
+
+
+def q4():
+    """
+    4. Do freelancers make more money or less money compared to full-time employees?
+    If so, what freelance job/task pays well and if not, what jobs are freelancers doing?
+    """
+
+    dataset = fileReader.dataset
+
+    # It filters by employment type
+    freelancers = dataset[dataset["employment_type"] == "FL"]
+    fullTime = dataset[dataset["employment_type"] == "FT"]
+
+    # It calculates average salaries
+    freelanceAvg = freelancers["salary_in_usd"].mean().round(2)
+    fullTimeAvg = fullTime["salary_in_usd"].mean().round(2)
+
+    # Finds the difference
+    difference = (freelanceAvg - fullTimeAvg).round(2)
+
+    # Finds the top freelance job and searches the most common freelance job
+    topFreelanceJob = freelancers.groupby("job_title")["salary_in_usd"].mean().idxmax()
+    topFreelancePay = freelancers.groupby("job_title")["salary_in_usd"].mean().max().round(2)
+
+    commonFreelanceJob = freelancers["job_title"].mode()[0]
+
+    print("\nFreelancers average salary: $", freelanceAvg)
+    print("Full-time average salary: $", fullTimeAvg)
+    print("Difference: $", difference)
+    print("Highest paid freelance job:", topFreelanceJob, "with $", topFreelancePay)
+    print("Most common freelance job:", commonFreelanceJob)
+
+
 def q5():
   "5.	what is the difference in average salary between companies with 100% remote work and 0% remote work"
 
@@ -172,3 +243,9 @@ def q14():
   
   print("\n------Top 5 Company Locations by Average Salary------\n")
   print(formatted_data.to_string(index=False))
+
+
+
+
+
+
