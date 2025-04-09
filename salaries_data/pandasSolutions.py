@@ -118,6 +118,16 @@ def q8():
   avg_salary_experience = df.groupby('experience_level')['salary_in_usd'].mean().round(2)
   print(avg_salary_experience)
 
+  # Plotting the average salary by Experience Level
+  avg_salary_exp.plot(kind='bar',)
+
+  # Labels for Graph
+  plt.title('Relationship between Experience level and Average Salary')
+  plt.xlabel('Experience Level')
+  plt.ylabel('Average Salary')
+
+  plt.show()
+
 def q13():
     """
     13. What is the average salary difference between the small, medium, and large companies?
