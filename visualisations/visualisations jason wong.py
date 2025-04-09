@@ -12,16 +12,16 @@ def q5():
     notRemoteAverage = notRemote["salary_in_usd"].mean().round(2) #calculating average salary in USD for 0% remote work
     difference = (notRemoteAverage-remoteAverage).round(2) #finding difference between the salaries
 
-    percentage = ["100%", "0%", "difference"]
-    values=[remoteAverage, notRemoteAverage, difference]
-    fig, ax = plt.subplots()
-    ax.set_title("Difference in salary between 100% and 0% remote work", fontweight='bold')
-    ax.set_xlabel("Remote Work" , color='g')
-    ax.set_ylabel("Average Salary in USD", color='r')
-    ax.bar(percentage, values, zorder=3)
-    ax.grid(zorder=0)
-    plt.tight_layout()
-    plt.show()
+    percentage = ["100%", "0%", "difference"] #x axis bar labels
+    values=[remoteAverage, notRemoteAverage, difference] #x axis bar values
+    fig, ax = plt.subplots() #creation of the graph
+    ax.set_title("Difference in salary between 100% and 0% remote work", fontweight='bold') #title of graph
+    ax.set_xlabel("Remote Work" , color='g') #x axis label coloured green
+    ax.set_ylabel("Average Salary in USD", color='r') #y axis label coloured red
+    ax.bar(percentage, values, zorder=3) #inputing the labels and values into the graph
+    ax.grid(zorder=0) #added grid lines to help understand values
+    plt.tight_layout() 
+    plt.show() #diplaying graph
 
 def q6():
     "6.	what is the difference between the average salary in lockdown (2020) compared to this year (2025)"
@@ -32,16 +32,16 @@ def q6():
     recentAverage = recent["salary_in_usd"].mean().round(2) #calculating average salary in USD for work year 2025
     difference = (recentAverage-lockdownAverage).round(2) #finding difference between the salaries
 
-    percentage = ["Lockdown (2020)", "Recent (2025)", "difference"]
-    values=[lockdownAverage, recentAverage, difference]
-    fig, ax = plt.subplots()
-    ax.set_title("Difference in salary between Lockdown (2020) and Recently (2025)", fontweight='bold')
-    ax.set_xlabel("Year/Time period" , color='g')
-    ax.set_ylabel("Average Salary in USD", color='r')
-    ax.bar(percentage, values, zorder=3)
-    ax.grid(zorder=0)
+    percentage = ["Lockdown (2020)", "Recent (2025)", "difference"] #x axis bar labels
+    values=[lockdownAverage, recentAverage, difference] #x axis bar values
+    fig, ax = plt.subplots() #creation of graph
+    ax.set_title("Difference in salary between Lockdown (2020) and Recently (2025)", fontweight='bold') #title of graph
+    ax.set_xlabel("Year/Time period" , color='g') #x axis label coloured green
+    ax.set_ylabel("Average Salary in USD", color='r') #y axis label coloured red
+    ax.bar(percentage, values, zorder=3) #inputing the labels and values into the graph
+    ax.grid(zorder=0) #added grid lines to help understand values
     plt.tight_layout()
-    plt.show()
+    plt.show() #diplaying graph
 
 
 while True:
@@ -49,16 +49,17 @@ while True:
         print("5. what is the difference in average salary between companies with 100% remote work and 0% remote work")
         print("6. what is the difference between the average salary in lockdown (2020) compared to this year (2025)")
         print("0. Exit")
+        #displaying options
 
-        choice = input("\nEnter your choice: ")
+        choice = input("\nEnter your choice: ") #taking user input for options
         
         match choice:
             case "5":
-                q5()
+                q5() #displaying 5th question visualisation by calling its function
             case "6":
-                q6()
+                q6() #displaying 6th question visualisation by calling its function
             case "0":
-                print("Exiting the program.")
+                print("Exiting the program.") #exiting program
                 break
             case _:
-                 print("Invalid option. Try again.")
+                 print("Invalid option. Try again.") #validation incase unexpected inputs
