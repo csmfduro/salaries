@@ -199,7 +199,7 @@ def q8():
 
   plt.show()
 
-def q11():
+def q13():
     """
     13. What is the average salary difference between the small, medium, and large companies?
     Groups the dataset by company size ('S', 'M', 'L') and calculates average salaries.
@@ -223,7 +223,7 @@ def q11():
     print(f"\nDifference between highest and lowest: ${diff}")
 
 
-def q12():
+def q14():
   """
   14. What location of companies have the highest salary?
   Displays the top 5 company locations with the highest average overall salaries.
