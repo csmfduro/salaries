@@ -29,17 +29,20 @@ def visualisationQ2():
   # Sort the job titles by the highest average salary
   highest_paying_jobs = average_salary_by_job.sort_values(ascending=False)
   
-  highest_paying_jobs =  highest_paying_jobs.head(8).round(2)
+  highest_paying_jobs =  highest_paying_jobs.head(5).round(2)
   
   plt.figure(figsize=(10, 6))
-  highest_paying_jobs.plot(kind='bar', color='indigo')
+  highest_paying_jobs.plot(kind='barh', color='teal')
+  
   # Set plot title and labels
-  plt.title("Top 8 Highest Paying Job Titles", fontweight='bold', fontsize=17, fontname='Times New Roman')
-  plt.xlabel("Job Title", fontsize=13)
-  plt.ylabel("Average Salary (USD)", fontsize=13)
+  plt.title("Top 5 Highest Paying Job Titles", fontweight='bold', fontsize=17, fontname='Times New Roman')
+  plt.ylabel("Job Title", fontsize=13, fontweight='bold')
+  plt.xlabel("Average Salary (USD)", fontsize=13, fontweight='bold')
+  
   # Rotate X-axis labels for better readability
-  plt.xticks(rotation=45, ha='right', fontsize= 9)
-  plt.yticks(fontsize= 8)
+  plt.xticks( fontsize= 10)
+  plt.yticks(fontsize= 10)
+    
   # Ensure everything fits inside the plot
   plt.tight_layout()
   plt.show()

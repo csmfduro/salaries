@@ -31,7 +31,7 @@ def q2():
   """
   2. What are the highest-paying AI job titles?
   Analyzes the dataset to identify the highest-paying AI job titles by calculating the average salary for each title.
-  The results are sorted by average salary in USD and the top 8 titles are displayed.
+  The results are sorted by average salary in USD and the top 5 titles are displayed.
   
   """
   df = fileReader.dataset
@@ -44,7 +44,7 @@ def q2():
   # Sort the job titles by the highest average salary
   highest_paying_jobs = average_salary_by_job.sort_values(ascending=False)
   
-  highest_paying_jobs =  highest_paying_jobs.head(8).round(2)
+  highest_paying_jobs =  highest_paying_jobs.head(5).round(2)
   
   # Format the Dataframe to make it look nicer
   formatted_data = highest_paying_jobs.reset_index()
