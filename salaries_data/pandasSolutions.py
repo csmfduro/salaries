@@ -117,3 +117,48 @@ def q8():
 
   avg_salary_experience = df.groupby('experience_level')['salary_in_usd'].mean().round(2)
   print(avg_salary_experience)
+
+def q13():
+    """
+    13. What is the average salary difference between the small, medium, and large companies?
+    Groups the dataset by company size ('S', 'M', 'L') and calculates average salaries.
+    """
+    df = fileReader.dataset
+
+    avg_salary_by_size = df.groupby("company_size")["salary_in_usd"].mean().round(2).sort_values(ascending=False)
+
+    size_labels = {
+        'L': 'Large',
+        'M': 'Medium',
+        'S': 'Small'
+    }
+
+    print("\n--- Average Salary by Company Size ---\n")
+    for size, avg_salary in avg_salary_by_size.items():
+        print(f"{size_labels.get(size, size)} Company: ${avg_salary}")
+    
+    # Optionally, show the difference between highest and lowest
+    diff = (avg_salary_by_size.max() - avg_salary_by_size.min()).round(2)
+    print(f"\nDifference between highest and lowest: ${diff}")
+
+
+def q14():
+  """
+  14. What location of companies have the highest salary?
+  Displays the top 5 company locations with the highest average overall salaries.
+  """
+  df = fileReader.dataset
+  
+  # Group by company location and calculate the average salary
+  grouped_by_location = df.groupby("company_location")
+  average_salary_by_location = grouped_by_location["salary_in_usd"].mean().round(2)
+  
+  # Get the top 5 locations with the highest average salary
+  top_locations = average_salary_by_location.sort_values(ascending=False).head(5)
+  
+  # Format the DataFrame for cleaner output
+  formatted_data = top_locations.reset_index()
+  formatted_data.columns = ['Company Location', 'Average Salary (USD)']
+  
+  print("\n------Top 5 Company Locations by Average Salary------\n")
+  print(formatted_data.to_string(index=False))
