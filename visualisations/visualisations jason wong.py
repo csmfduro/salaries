@@ -20,7 +20,7 @@ def q5():
     ax.set_ylabel("Average Salary in USD", color='r') #y axis label coloured red
     ax.bar(percentage, values, zorder=3) #inputing the labels and values into the graph
     for i in range(len(percentage)):
-        plt.text(i, values[i], values[i], ha="center", va="bottom" )
+        plt.text(i, values[i], values[i], ha="center", va="bottom" ) #displays values above bars
     ax.grid(zorder=0) #added grid lines to help understand values
     plt.tight_layout() 
     plt.show() #diplaying graph
@@ -42,7 +42,7 @@ def q6():
     ax.set_ylabel("Average Salary in USD", color='r') #y axis label coloured red
     ax.bar(year, values, zorder=3) #inputing the labels and values into the graph
     for i in range(len(year)):
-        plt.text(i, values[i], values[i], ha="center", va="bottom" )
+        plt.text(i, values[i], values[i], ha="center", va="bottom" ) #displays values above bars
     ax.grid(zorder=0) #added grid lines to help understand values
     plt.tight_layout()
     plt.show() #diplaying graph
