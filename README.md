@@ -12,3 +12,9 @@ Visualisation instructions - Jason Wong
 1. Check if file path is still valid under the csvFilePath variable
 2. run code and choose question from console
 3. visualisation should appear
+
+Visualisation instructions - Jake Cowling
+1. Check if file path is still valid under the csvFilePath variable
+2. run code
+3. choose either question 7 or 8 by typing, alternatively type 0 to ecxit program
+4. visualisation appears
