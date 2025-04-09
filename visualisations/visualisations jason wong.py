@@ -19,6 +19,8 @@ def q5():
     ax.set_xlabel("Remote Work" , color='g') #x axis label coloured green
     ax.set_ylabel("Average Salary in USD", color='r') #y axis label coloured red
     ax.bar(percentage, values, zorder=3) #inputing the labels and values into the graph
+    for i in range(len(percentage)):
+        plt.text(i, values[i], values[i], ha="center", va="bottom" )
     ax.grid(zorder=0) #added grid lines to help understand values
     plt.tight_layout() 
     plt.show() #diplaying graph
@@ -32,13 +34,15 @@ def q6():
     recentAverage = recent["salary_in_usd"].mean().round(2) #calculating average salary in USD for work year 2025
     difference = (recentAverage-lockdownAverage).round(2) #finding difference between the salaries
 
-    percentage = ["Lockdown (2020)", "Recent (2025)", "difference"] #x axis bar labels
+    year = ["Lockdown (2020)", "Recent (2025)", "difference"] #x axis bar labels
     values=[lockdownAverage, recentAverage, difference] #x axis bar values
     fig, ax = plt.subplots() #creation of graph
     ax.set_title("Difference in salary between Lockdown (2020) and Recently (2025)", fontweight='bold') #title of graph
     ax.set_xlabel("Year/Time period" , color='g') #x axis label coloured green
     ax.set_ylabel("Average Salary in USD", color='r') #y axis label coloured red
-    ax.bar(percentage, values, zorder=3) #inputing the labels and values into the graph
+    ax.bar(year, values, zorder=3) #inputing the labels and values into the graph
+    for i in range(len(year)):
+        plt.text(i, values[i], values[i], ha="center", va="bottom" )
     ax.grid(zorder=0) #added grid lines to help understand values
     plt.tight_layout()
     plt.show() #diplaying graph
