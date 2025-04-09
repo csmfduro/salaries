@@ -18,7 +18,8 @@ def q5():
     ax.set_title("Difference in salary between 100% and 0% remote work", fontweight='bold')
     ax.set_xlabel("Remote Work" , color='g')
     ax.set_ylabel("Average Salary in USD", color='r')
-    ax.bar(percentage, values)
+    ax.bar(percentage, values, zorder=3)
+    ax.grid(zorder=0)
     plt.tight_layout()
     plt.show()
 
@@ -37,7 +38,8 @@ def q6():
     ax.set_title("Difference in salary between Lockdown (2020) and Recently (2025)", fontweight='bold')
     ax.set_xlabel("Year/Time period" , color='g')
     ax.set_ylabel("Average Salary in USD", color='r')
-    ax.bar(percentage, values)
+    ax.bar(percentage, values, zorder=3)
+    ax.grid(zorder=0)
     plt.tight_layout()
     plt.show()
 
