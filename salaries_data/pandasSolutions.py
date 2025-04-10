@@ -198,6 +198,60 @@ def q8():
   plt.ylabel('Average Salary')
 
   plt.show()
+  
+  def q9():
+    """
+    9. How do salaries differ between employees with and without a degree?
+    Compares the average salary of employees who hold a degree versus those who do not.
+    """
+    df = fileReader.dataset
+
+    # Clean/standardize education levels if necessary
+    degree_levels = ['Bachelor’s', 'Master’s', 'PhD']
+    df['has_degree'] = df['education_level'].isin(degree_levels)
+
+    # Group by whether they have a degree or not
+    salary_by_degree = df.groupby('has_degree')['salary_in_usd'].mean().round(2)
+
+    print("\n--- Salary Comparison: With vs Without Degree ---\n")
+    print(f"With Degree: ${salary_by_degree[True]}")
+    print(f"Without Degree: ${salary_by_degree[False]}")
+    print(f"Difference: ${(salary_by_degree[True] - salary_by_degree[False]).round(2)}")
+
+
+def q10():
+    """
+    10. Is there a correlation between years of experience and salary?
+    Calculates the correlation coefficient between years of experience and salary.
+    """
+    df = fileReader.dataset
+
+    # Check for presence of experience-related column
+    if 'years_of_experience' not in df.columns:
+        print("Column 'years_of_experience' not found in the dataset.")
+        return
+
+    # Drop missing or non-numeric values
+    df_clean = df[['years_of_experience', 'salary_in_usd']].dropna()
+
+    # Calculate correlation
+    correlation = df_clean['years_of_experience'].corr(df_clean['salary_in_usd'])
+
+    print("\n--- Correlation between Years of Experience and Salary ---\n")
+    print(f"Correlation coefficient: {correlation:.2f}")
+
+    # Optional: give interpretation
+    if correlation > 0.5:
+        print("Strong positive correlation: More experience tends to result in higher salary.")
+    elif correlation > 0.2:
+        print("Moderate positive correlation.")
+    elif correlation > 0:
+        print("Weak positive correlation.")
+    elif correlation == 0:
+        print("No correlation.")
+    else:
+        print("Negative correlation: More experience may be linked to lower salaries (unusual case).")
+
 
 def q11():
     """
