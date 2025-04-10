@@ -24,9 +24,10 @@ def visualisationQ11():
 
   #Makes sure it looks nice and presentable
   formatted_data = average_salary_by_size.reset_index()
-
+  #colours for the each bar chart
+  colours = ['#A8D5BA', '#FFD3B6', '#FFAAA5']
   #Bar chart
-  axes = average_salary_by_size.plot(kind='bar', color='darkorange', figsize=(8, 6), zorder=3)
+  axes = average_salary_by_size.plot(kind='bar', colour=colours , figsize=(8, 6), zorder=3)
 
   #Set the title and axis labels
   axes.set_title("Average Salary by Company Size", fontweight='bold', fontsize=17, fontname='Times New Roman')
@@ -66,7 +67,7 @@ def visualisationQ12():
   formatted_data.columns = ['Company Location', 'Number of Remote Jobs']
   
   #Plot
-  axes = remote_counts.plot(kind='bar', color='slateblue', figsize=(10, 6), zorder=3)
+  axes = remote_counts.plot(kind='bar', colour='#D7BDE2', figsize=(10, 6), zorder=3)
 
   #Set plot title and labels
   axes.set_title("Top 5 Company Locations with Most Remote Opportunities", fontweight='bold', fontsize=17, fontname='Times New Roman')

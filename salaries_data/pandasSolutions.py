@@ -201,7 +201,7 @@ def q8():
 
 def q11():
     """
-    13. What is the average salary difference between the small, medium, and large companies?
+    11. What is the average salary difference between the small, medium, and large companies?
     Groups the dataset by company size ('S', 'M', 'L') and calculates average salaries.
     """
     df = fileReader.dataset
@@ -218,7 +218,7 @@ def q11():
     for size, avg_salary in avg_salary_by_size.items():
         print(f"{size_labels.get(size, size)} Company: ${avg_salary}")
     
-    # Optionally, show the difference between highest and lowest
+    # Difference of highest and lowest average salary
     diff = (avg_salary_by_size.max() - avg_salary_by_size.min()).round(2)
     print(f"\nDifference between highest and lowest: ${diff}")
 
