@@ -218,7 +218,7 @@ def q11():
     for size, avg_salary in avg_salary_by_size.items():
         print(f"{size_labels.get(size, size)} Company: ${avg_salary}")
     
-    # Difference of highest and lowest average salary
+    #Difference of highest and lowest average salary
     diff = (avg_salary_by_size.max() - avg_salary_by_size.min()).round(2)
     print(f"\nDifference between highest and lowest: ${diff}")
 
@@ -228,19 +228,19 @@ def q12():
   12. Which countries offer the most remote opportunities?
   Identifies the top 5 company locations offering the highest number of 100% remote jobs.
   """
-  df = fileReader.dataset  # Load dataset
+  df = fileReader.dataset  #Load dataset
 
-  # Filter the dataset for 100% remote jobs
+  #Filter the dataset for 100% remote jobs
   remote_jobs = df[df["remote_ratio"] == 100]
 
-  # Count the number of remote jobs by company location
+  #Count the number of remote jobs by company location
   remote_counts = remote_jobs["company_location"].value_counts().head(5)
 
-  # Format results for easier display
+  #Format results for easier display
   formatted_data = remote_counts.reset_index()
   formatted_data.columns = ['Company Location', 'Number of Remote Jobs']
 
-  # Display the top 5 results
+  #Display the top 5 results
   print("\n--- Top 5 Company Locations with the Most Remote Opportunities ---\n")
   print(formatted_data.to_string(index=False))
 
