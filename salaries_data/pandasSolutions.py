@@ -50,7 +50,7 @@ def q2():
   formatted_data = highest_paying_jobs.reset_index()
   formatted_data.columns = ['Job Title', 'Average Salary (USD)']
   
-  # Display the top 8 highest-paying job titles
+  # Display the top 5 highest-paying job titles
   print("\n")
   for i, row in formatted_data.iterrows():
     print(f"{i+1}. {row['Job Title']}: ${row['Average Salary (USD)']:.2f}")
