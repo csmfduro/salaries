@@ -9,4 +9,4 @@
 9.	How do salaries differ between employees with and without a degree?
 10.	Is there a correlation between years of experience and salary?
 11.	What is the average salary difference between the small, medium and large companies?
-12.	What location of companies have the highest salary?
+12. Which countries offer the most remote opportunities?
