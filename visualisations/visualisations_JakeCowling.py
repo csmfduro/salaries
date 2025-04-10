@@ -34,13 +34,15 @@ def q8():
   #Prints values to use in grahpical representation
   print(avg_salary_exp)
 
-  
+  #formatting the data for clarity
   formatted_data = avg_salary_exp.reset_index()
+  # formatted_data.columns = ['Experience Level', 'Average Salary (USD)']
   axes = avg_salary_exp.plot(kind='bar', color='Blue', figsize=(10, 6), zorder=3)
   # Set plot title and labels
   axes.set_title("Average Salary Based on work Experience", fontweight='bold')
   axes.set_xlabel('experience_level'), 
   axes.set_ylabel('Average Salary (USD)'),
+  #added grid for better visualisation
   axes.set_xticklabels(axes.get_xticklabels(), rotation=90)
   axes.grid(zorder=0)
   ymin, ymax = plt.ylim()
