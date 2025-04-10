@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 def q1():
   """ 1.	Which countries offer the highest salaries for AI professionals?
-  Analyzes the dataset to identify the top 10 countries offering the highest average AI salaries. 
+  Analyzes the dataset to identify the top 5 countries offering the highest average AI salaries. 
   The data is grouped by 'employee_residence' and sorted by average salary in USD.
   """
   df =  fileReader.dataset
@@ -16,14 +16,14 @@ def q1():
   # Calculate the average salary
   average_country_salary = group_country_salary.mean()
   # Sort countries by highest average salary
-  top_countries = average_country_salary.sort_values(ascending=False).head(10).round(2)
+  top_countries = average_country_salary.sort_values(ascending=False).head(5).round(2)
   
   # Format the Dataframe to make it look nicer
   formatted_data = top_countries.reset_index()
   formatted_data.columns = ['Country Code', 'Average Salary (USD)']
   
-  # Print only the top 10
-  print("\n---------Top 10 Countries by Average AI Salary----------\n")
+  # Print only the top 5
+  print("\n---------Top 5 Countries by Average AI Salary----------\n")
   print(formatted_data.to_string(index=False))
 
     
