@@ -11,9 +11,10 @@ def viewDataset():
 
 def viewColumnNames():
     print("Viewing column names.")
-    columns = dataset.columns.values.tolist()
-    print(columns)
-
+    index = 1
+    for column in dataset.columns:
+        print(f"{index}. {column}")
+        index += 1
 
 def viewDatasetInfo():
     print("Viewing dataset info.")
