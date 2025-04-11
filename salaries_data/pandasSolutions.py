@@ -192,24 +192,23 @@ def q8():
 
   plt.show()
   
-  def q9():
-    """
-    9. How do salaries differ between employees with and without a degree?
-    Compares the average salary of employees who hold a degree versus those who do not.
-    """
-    df = fileReader.dataset
+def q9():
+  """
+  9. How do salaries differ between employees with and without a degree?
+    Compares the average salary of employees who hold a degree versus those who do not.    """
+  df = fileReader.dataset
 
     # Clean/standardize education levels if necessary
-    degree_levels = ['Bachelor’s', 'Master’s', 'PhD']
-    df['has_degree'] = df['education_level'].isin(degree_levels)
+  degree_levels = ['Bachelor’s', 'Master’s', 'PhD']
+  df['has_degree'] = df['education_level'].isin(degree_levels)
 
     # Group by whether they have a degree or not
-    salary_by_degree = df.groupby('has_degree')['salary_in_usd'].mean().round(2)
+  salary_by_degree = df.groupby('has_degree')['salary_in_usd'].mean().round(2)
 
-    print("\n--- Salary Comparison: With vs Without Degree ---\n")
-    print(f"With Degree: ${salary_by_degree[True]}")
-    print(f"Without Degree: ${salary_by_degree[False]}")
-    print(f"Difference: ${(salary_by_degree[True] - salary_by_degree[False]).round(2)}")
+  print("\n--- Salary Comparison: With vs Without Degree ---\n")
+  print(f"With Degree: ${salary_by_degree[True]}")
+  print(f"Without Degree: ${salary_by_degree[False]}")
+  print(f"Difference: ${(salary_by_degree[True] - salary_by_degree[False]).round(2)}")
 
 
 def q10():
