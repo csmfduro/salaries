@@ -1,4 +1,5 @@
 How to run code:
+
 1. navigate to interface.py located in the salaries_data folder
 2. select anoconda interpreter
 3. click run on code
@@ -9,18 +10,27 @@ How to run code:
 8. enter 5 on main menu to exit code
 
 Visualisation instructions - Jason Wong
+
 1. Check if file path is still valid under the csvFilePath variable
 2. run code and choose question from console
 3. visualisation should appear
 
+Visualisation instructions - Fiyin Duro-Ladipo
+
+1. Check if file path is still valid under the csvFilePath variable
+2. run the code
+3. Choose whichever one of the questions you are interested in seeing the visualisation of
+4. Enter 0 if you wish to exitthe code
+5. visualisation should appear
+
 Visualisation instructions - Jake Cowling
+
 1. Check if file path is still valid under the csvFilePath variable
 2. run code
 3. choose either question 7 or 8 by typing, alternatively type 0 to exit program
 4. visualisation appears
-   
-Visualisation instructions - Faris Almlih
 
+Visualisation instructions - Faris Almlih
 
 1. Check if file path is still valid under the csvFilePath variable
 2. run code
@@ -29,4 +39,3 @@ Visualisation instructions - Faris Almlih
    - 9 for the currency comparison chart.
    - 10 for the employment type & job title chart.
 5. visualisation appears
-   
