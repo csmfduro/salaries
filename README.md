@@ -18,3 +18,15 @@ Visualisation instructions - Jake Cowling
 2. run code
 3. choose either question 7 or 8 by typing, alternatively type 0 to exit program
 4. visualisation appears
+   
+Visualisation instructions - Faris Almlih
+
+
+1. Check if file path is still valid under the csvFilePath variable
+2. run code
+3. A menu will appear in the terminal.
+4. Enter:
+   - 9 for the currency comparison chart.
+   - 10 for the employment type & job title chart.
+5. visualisation appears
+   
