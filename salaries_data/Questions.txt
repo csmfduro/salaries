@@ -6,7 +6,7 @@
 6.	what is the difference between the average salary in lockdown (2020) compared to this year (2025)
 7.	What are the job titles for the lowest ten paying jobs (in ascending order)?
 8.	What is the main trend between experience level and salary?
-9.How do salaries in different currencies (USD, EUR, GBP) compare when converted into USD?"
-10.How does the salary differ between full-time employees and other employment types, like part-time or freelance roles, across different job titles?"
+9.How do salaries in different currencies (USD, EUR, GBP) compare when converted into USD?
+10.How does the salary differ between full-time employees and other employment types, like part-time or freelance roles, across different job titles?
 11.	What is the average salary difference between the small, medium and large companies?
 12. Which countries offer the most remote opportunities?
