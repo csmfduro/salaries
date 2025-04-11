@@ -6,18 +6,24 @@ csvFilePath = "Salaries_data\\salaries.csv"
 df = pd.read_csv(csvFilePath)
 
 def visualisationQ1():
-  grouped = df.groupby("employee_residence")
-  average_country_salary = grouped["salary_in_usd"].mean()
+  country_counts = df['employee_residence'].value_counts()
+  filtered_countries = country_counts[country_counts > 10].index
+  filtered_df = df[df['employee_residence'].isin(filtered_countries)]
+  grouped_by_country = filtered_df.groupby("employee_residence")
+  group_country_salary = grouped_by_country["salary_in_usd"]
+  average_country_salary = group_country_salary.mean()
   top_countries = average_country_salary.sort_values(ascending=False).head(5).round(2)
-
+  # Matplotlib
   fig, axes = plt.subplots(figsize=(12, 9))
-  top_countries.plot(kind='bar', color=colors)
+  top_countries.plot(kind='bar', color=colors, zorder=3)
   # Set plot title and labels
   axes.set_title("Top 5 Countries by Average AI Salary (USD)", fontweight='bold', fontsize=17, fontname='Times New Roman')
   axes.set_xlabel("Country Code" , fontweight='bold', fontsize=12)
   axes.set_ylabel("Average Salary (USD)", fontweight='bold', fontsize=12)
   # Rotate X-axis labels for better readability
-  axes.set_xticklabels(axes.get_xticklabels(), rotation=90)
+  axes.set_xticklabels(axes.get_xticklabels(), rotation=0)
+    # Add a grid to the y axis
+  axes.grid(axis='y', linestyle='--', zorder=0)
   # Made the values visible above the bars
   rects = axes.patches
   for rect in rects:
@@ -27,27 +33,17 @@ def visualisationQ1():
     axes.text(
     x, height + 8,  f"${height:,}",
     ha="center", va="bottom", fontsize=11, fontweight="bold", color =  bar_color )
-    # Add a grid to the y axis
-  axes.grid(axis='y', linestyle='--')
   # Ensure everything fits inside the plot
   plt.tight_layout()
   plt.show()
   
 def visualisationQ2():
   grouped_by_job = df.groupby("job_title")
-  
-  # Calculate the average salary in USD for each job title
   average_salary_by_job = grouped_by_job["salary_in_usd"].mean()
-  
-  # Sort the job titles by the highest average salary
   highest_paying_jobs = average_salary_by_job.sort_values(ascending=False)
-  
-  # Rounds it up and ranks them in descending order
   highest_paying_jobs =  highest_paying_jobs.head(5).round(2).iloc[::-1]
-  
   fig, axes = plt.subplots(figsize=(12, 8))
   highest_paying_jobs.plot(kind='barh', color=colors, zorder=2)
-  
   # Set plot title and labels
   axes.set_title("Top 5 Highest Paying Job Titles", fontweight='bold', fontsize=17, fontname='Times New Roman')
   axes.set_ylabel("Job Title", fontsize=13, fontweight='bold')
@@ -63,9 +59,6 @@ def visualisationQ2():
         (width/1.6) , y, f"${width:,.0f}",
         va='center', ha='right', fontsize=11, fontweight="bold", color='white'
     )
-
-  plt.xticks( fontsize= 10)
-  plt.yticks(fontsize= 10)
     
   # Ensure everything fits inside the plot
   plt.tight_layout()

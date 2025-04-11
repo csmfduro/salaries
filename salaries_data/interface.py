@@ -32,8 +32,11 @@ def viewQuestions():
             num = int(input("\nEnter the your question number or enter -1 to Abort: "))
             if 1 <= num <= len(questions):
                 print(f"\n{questions[num - 1].strip()}")
-                func = getattr(pandasSolutions, f"q{num}")
-                func()  # Run the corresponding solution
+                if hasattr(pandasSolutions, func):
+                    func = getattr(pandasSolutions, f"q{num}")
+                    func()  # Run the corresponding solution
+                else:
+                    print(f"Sorry, solution for question {num} is not available.")
                 break  # Exit the loop once valid input is given
             elif num == -1:
                 break

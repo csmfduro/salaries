@@ -14,9 +14,9 @@ def q1():
   # Apply the filter to the original dataframe
   filtered_df = df[df['employee_residence'].isin(filtered_countries)]
   # Grouped by employee_residence
-  grouped = filtered_df.groupby("employee_residence")
+  grouped_by_country = filtered_df.groupby("employee_residence")
   # Group the countries based on their salaries
-  group_country_salary = grouped["salary_in_usd"]
+  group_country_salary = grouped_by_country["salary_in_usd"]
   # Calculate the average salary
   average_country_salary = group_country_salary.mean()
   # Sort countries by highest average salary
