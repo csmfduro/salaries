@@ -3,59 +3,52 @@ import matplotlib.pyplot as plt
 
 def q1():
   """ 1.	Which countries offer the highest salaries for AI professionals?
-  Analyzes the dataset to identify the top 5 countries offering the highest average AI salaries. 
+  Analyses the dataset to identify the top 5 countries offering the highest average AI salaries. 
   The data is grouped by 'employee_residence' and sorted by average salary in USD.
   """
   df =  fileReader.dataset
+  # Count occurrences of each value in employee_residence column
+  country_counts = df['employee_residence'].value_counts()
+  # Filter based on occurrences and keep the data that contains more than 10 countries
+  filtered_countries = country_counts[country_counts > 10].index
+  # Apply the filter to the original dataframe
+  filtered_df = df[df['employee_residence'].isin(filtered_countries)]
   # Grouped by employee_residence
-  grouped = df.groupby("employee_residence")
-  
+  grouped = filtered_df.groupby("employee_residence")
   # Group the countries based on their salaries
   group_country_salary = grouped["salary_in_usd"]
-  
   # Calculate the average salary
   average_country_salary = group_country_salary.mean()
   # Sort countries by highest average salary
   top_countries = average_country_salary.sort_values(ascending=False).head(5).round(2)
-  
   # Format the Dataframe to make it look nicer
   formatted_data = top_countries.reset_index()
   formatted_data.columns = ['Country Code', 'Average Salary (USD)']
-  
   # Print only the top 5
   print("\n---------Top 5 Countries by Average AI Salary----------\n")
   print(formatted_data.to_string(index=False))
 
     
 def q2():
-  """
-  2. What are the highest-paying AI job titles?
-  Analyzes the dataset to identify the highest-paying AI job titles by calculating the average salary for each title.
+  """ 2. What are the highest-paying AI job titles?
+  Analyses the dataset to identify the highest-paying AI job titles by calculating the average salary for each title.
   The results are sorted by average salary in USD and the top 5 titles are displayed.
-  
   """
   df = fileReader.dataset
   # Group by job_title
   grouped_by_job = df.groupby("job_title")
-  
   # Calculate the average salary in USD for each job title
   average_salary_by_job = grouped_by_job["salary_in_usd"].mean()
-  
   # Sort the job titles by the highest average salary
   highest_paying_jobs = average_salary_by_job.sort_values(ascending=False)
-  
   highest_paying_jobs =  highest_paying_jobs.head(5).round(2)
-  
   # Format the Dataframe to make it look nicer
   formatted_data = highest_paying_jobs.reset_index()
   formatted_data.columns = ['Job Title', 'Average Salary (USD)']
-  
   # Display the top 5 highest-paying job titles
   print("\n")
   for i, row in formatted_data.iterrows():
     print(f"{i+1}. {row['Job Title']}: ${row['Average Salary (USD)']:.2f}")
-
-
 
 def q3():
     """
